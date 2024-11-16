@@ -19,11 +19,29 @@ namespace ToDoAppAPI.Controllers
 
         [HttpPost]
         [Route("task/create")]
-        public ActionResult<ResponseModel> CreateTask(TaskModel task)
+        public ActionResult<dynamic> CreateTask(TaskModel task)
         {
-            
-            ResponseModel responseModel = new ResponseModel();
-            return responseModel;
+            string ?myConnectionString = this._connectionString;
+            //ResponseModel responseModel = new ResponseModel();
+            //responseModel.Result.Add(myConnectionString);
+            //responseModel.Out
+            //return responseModel;
+
+            return Ok(myConnectionString);
+
+        }
+
+        [HttpGet]
+        [Route("task/check")]
+        public ActionResult<dynamic> Check()
+        {
+            string ?myConnectionString = this._connectionString;
+            //ResponseModel responseModel = new ResponseModel();
+            //responseModel.Result.Add(myConnectionString);
+            //responseModel.Out
+            //return responseModel;
+
+            return Ok($"My connection string is: {myConnectionString}");
 
         }
     }
